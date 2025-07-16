@@ -1,1 +1,66 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: coolvetica;
+    src: url(./assets/font/Coolvetica\ Rg.otf);
+}
+
+#cool{
+    font-family: coolvetica;
+}
+
+button{
+    cursor: pointer;
+}
+
+.arrow {
+  transition: transform 0.8s ease;
+  transform: rotate(90deg) scale(0.8);
+}
+
+.kotak:hover .arrow {
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.sign{
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.sign:hover{
+    color: white;
+    background-color: #56AFCA;
+}
+
+.login{
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.login:hover{
+    color: #56AFCA;
+    background-color: white;
+}
+
+.hitam{
+    transition: transform 0.8s ease;
+}
+
+.google:hover .hitam{
+    transform: scale(1.2) rotate(360deg);
+}
+
+.tekss{
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.tekss:hover{
+    color: #56AFCA;
+}
+
+.cek-box:active .white-check{
+    opacity: 100;
+    z-index: 10;
+}
+
+.cek-box:active{
+    background-color: #56AFCA;
+}

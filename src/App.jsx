@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import axios from 'axios'
-import Login from './pages/Login'
+import Login from './pages/Logiin'
 import DetailUser from './pages/DetailUser'
 import UserList from './pages/UserList'
 
