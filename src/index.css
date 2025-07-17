@@ -5,62 +5,82 @@
     src: url(./assets/font/Coolvetica\ Rg.otf);
 }
 
-#cool{
+#cool {
     font-family: coolvetica;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
 .arrow {
-  transition: transform 0.8s ease;
-  transform: rotate(90deg) scale(0.8);
+    transition: transform 0.8s ease;
+    transform: rotate(90deg) scale(0.8);
 }
 
 .kotak:hover .arrow {
-  transform: rotate(-45deg) scale(1.1);
+    transform: rotate(-45deg) scale(1.1);
 }
 
-.sign{
+.sign {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.sign:hover{
+.sign:hover {
     color: white;
     background-color: #56AFCA;
 }
 
-.login{
+.login {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.login:hover{
+.login:hover {
     color: #56AFCA;
     background-color: white;
 }
 
-.hitam{
+.hitam {
     transition: transform 0.8s ease;
 }
 
-.google:hover .hitam{
+.google:hover .hitam {
     transform: scale(1.2) rotate(360deg);
 }
 
-.tekss{
+.tekss {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.tekss:hover{
+.tekss:hover {
     color: #56AFCA;
 }
 
-.cek-box:active .white-check{
+.cek-box:active .white-check {
     opacity: 100;
     z-index: 10;
 }
 
-.cek-box:active{
+.cek-box:active {
     background-color: #56AFCA;
+}
+
+.boxx {
+    outline: 1px solid white;
+    border-radius: 30px;
+    box-shadow:
+        inset -7px 6px 4px -2px rgba(255, 255, 255, 0.49),
+        inset 10px 4px 4.5px -4px rgba(255, 255, 255, 0.47);
+}
+
+.boxxx {
+    outline: 1px solid white;
+}
+
+.rotet{
+    transition: 1.2s ease;
+}
+
+.rotate:hover .rotet{
+    transform: rotate(360deg);
 }
