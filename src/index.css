@@ -5,6 +5,11 @@
     src: url(./assets/font/Coolvetica\ Rg.otf);
 }
 
+html,
+body {
+    touch-action: manipulation;
+}
+
 #cool {
     font-family: coolvetica;
 }
@@ -77,10 +82,70 @@ button {
     outline: 1px solid white;
 }
 
-.rotet{
+.rotet {
     transition: 1.2s ease;
 }
 
-.rotate:hover .rotet{
+.rotate:hover .rotet {
     transform: rotate(360deg);
+}
+
+.card {
+    background: linear-gradient(90deg, #78BFF6 0%, #296594 100%);
+}
+
+
+.scroll-barr::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+}
+
+.scroll-barr::-webkit-scrollbar-thumb {
+    background: #50B1FF;
+    border-radius: 10px;
+}
+
+
+.scroll-barr::-webkit-scrollbar-track {
+    background: #1E5989;
+    border-radius: 10px;
+}
+
+.navbar:hover {
+    color: #50B1FF;
+}
+
+.navbar:active {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+.logout:hover {
+    color: #50B1FF;
 }

@@ -4,11 +4,58 @@ import check1 from '../assets/check1.png';
 import google from '../assets/google.svg';
 import Register from "./register";
 import NotFound from "./NotFound";
+import axios from "axios";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const InputForm = () => {
     const [popupContent, setPopupContent] = useState(null);
     const popupRef = useRef(null);
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [success, setSuccess] = useState("");
+    const navigate = useNavigate();
+
+    const changeUserName = (e) => {
+        setUsername(e.target.value);
+    };
+
+    const changePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleSubmit = async () => {
+        const payload = {
+            email: username,
+            password: password,
+        };
+
+        try {
+            const res = await axios.post(
+                "https://reqres.in/api/login",
+                payload,
+                {
+                    headers: {
+                        "x-api-key": "reqres-free-v1" // optional, tapi bisa masukin
+                    }
+                }
+            );
+
+            const token = res.data.token;
+            localStorage.setItem("accessToken", token);
+            setSuccess("Login berhasil");
+
+            setTimeout(() => {
+                navigate("/user");
+            }, 2000);
+
+        } catch (error) {
+            const errorMsg = error?.response?.data?.error || "Login gagal";
+            console.log(error.response);
+            setSuccess(errorMsg); // tampilkan pesan dari server
+        }
+    };
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -33,6 +80,7 @@ const InputForm = () => {
                     type="text"
                     placeholder="Email"
                     className="outline-none border-none text-white"
+                    onChange={changeUserName}
                 />
                 <div className="bg-white w-[345px] h-[2px]"></div>
             </div>
@@ -42,6 +90,7 @@ const InputForm = () => {
                     type="text"
                     placeholder="Password"
                     className="outline-none border-none text-white"
+                    onChange={changePassword}
                 />
                 <div className="bg-white w-[345px] h-[2px]"></div>
             </div>
@@ -65,16 +114,14 @@ const InputForm = () => {
             </div>
 
             <div className="w-[345px] mt-10 flex justify-center items-center">
-                <Link to={"/user"}>
-                    <button
-                        id="cool"
-                        className="login text-white w-[345px] h-[60px] text-2xl bg-[#56AFCA] rounded-[15px]"
-                    >
-                        Login
-                    </button>
-                </Link>
+                <button
+                    id="cool"
+                    className="login text-white w-[345px] h-[60px] text-2xl bg-[#56AFCA] rounded-[15px]"
+                    onClick={handleSubmit}
+                >
+                    Login
+                </button>
             </div>
-
             <div className="flex pt-9 w-[345px] justify-between">
                 <button
                     onClick={() => setPopupContent('notfound')}
