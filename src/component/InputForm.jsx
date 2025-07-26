@@ -2,61 +2,19 @@ import { Link } from "react-router-dom";
 import check from '../assets/check.png';
 import check1 from '../assets/check1.png';
 import google from '../assets/google.svg';
-import Register from "./register";
+import Register from "./Register";
 import NotFound from "./NotFound";
 import axios from "axios";
+import { toast } from "sonner";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const InputForm = () => {
+const InputForm = (props) => {
     const [popupContent, setPopupContent] = useState(null);
     const popupRef = useRef(null);
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [success, setSuccess] = useState("");
-    const navigate = useNavigate();
-
-    const changeUserName = (e) => {
-        setUsername(e.target.value);
-    };
-
-    const changePassword = (e) => {
-        setPassword(e.target.value);
-    };
-
-    const handleSubmit = async () => {
-        const payload = {
-            email: username,
-            password: password,
-        };
-
-        try {
-            const res = await axios.post(
-                "https://reqres.in/api/login",
-                payload,
-                {
-                    headers: {
-                        "x-api-key": "reqres-free-v1" // optional, tapi bisa masukin
-                    }
-                }
-            );
-
-            const token = res.data.token;
-            localStorage.setItem("accessToken", token);
-            setSuccess("Login berhasil");
-
-            setTimeout(() => {
-                navigate("/user");
-            }, 2000);
-
-        } catch (error) {
-            const errorMsg = error?.response?.data?.error || "Login gagal";
-            console.log(error.response);
-            setSuccess(errorMsg); // tampilkan pesan dari server
-        }
-    };
-
+    const {changeUserName,changePassword,handleSubmit} = props;
+    
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (popupRef.current && !popupRef.current.contains(e.target)) {
@@ -79,7 +37,7 @@ const InputForm = () => {
                 <input
                     type="text"
                     placeholder="Email"
-                    className="outline-none border-none text-white"
+                    className="outline-none border-none text-white w-85"
                     onChange={changeUserName}
                 />
                 <div className="bg-white w-[345px] h-[2px]"></div>
@@ -87,9 +45,9 @@ const InputForm = () => {
 
             <div id="cool" className="py-5">
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Password"
-                    className="outline-none border-none text-white"
+                    className="outline-none border-none text-white w-85"
                     onChange={changePassword}
                 />
                 <div className="bg-white w-[345px] h-[2px]"></div>
@@ -139,7 +97,7 @@ const InputForm = () => {
             </div>
 
             {popupContent && (
-                <div className="-translate-x-[375px] -translate-y-[275px] fixed inset-0 flex items-center justify-center z-50">
+                <div className="xl:-translate-x-[375px] lg:-translate-x-[375px] md:-translate-x-[260px] -translate-y-[275px] fixed inset-0 flex items-center justify-center z-50">
                     <div ref={popupRef}>
                         {popupContent === "register" && <Register />}
                         {popupContent === "notfound" && <NotFound />}

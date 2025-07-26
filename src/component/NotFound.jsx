@@ -5,7 +5,7 @@ const NotFound = () => {
 
 
     return (
-        <div className="flex-col justify-center items-center pt-6 w-[790px] h-[550px] bg-white outline-2 overflow-hidden rounded-4xl absolute shadow-lg">
+        <div className="flex-col justify-center items-center pt-6 xl:w-[790px] h-[550px] lg:w-[790px] md:w-[500px] xl:ml-0 lg:ml-0 md:ml-31 bg-white outline-2 overflow-hidden rounded-4xl absolute shadow-lg">
             <div className='flex flex-col justify-center items-center mt-17 relative'>
                 <div className='w-55 h-40 z-20 ml-7'>
                     <img src={notfound} className='object-cover' />

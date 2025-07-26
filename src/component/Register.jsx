@@ -22,7 +22,7 @@ const Register = () => {
                 }
             );
             console.log("Berhasil register:", response.data);
-            setSuccessMsg("🎉 Berhasil! Token: " + response.data.token);
+            setSuccessMsg("Berhasil! Token: " + response.data.token);
             setErrorMsg("");
         } catch (error) {
             const err = error.response?.data?.error || "Gagal Register";
@@ -33,7 +33,7 @@ const Register = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center pt-6 w-[790px] h-[550px] bg-white outline-2 rounded-4xl absolute shadow-lg">
+        <div className="flex flex-col justify-center items-center pt-6 xl:w-[790px] lg:w-[790px] md:w-[525px] h-[550px] bg-white outline-2 rounded-4xl absolute shadow-lg">
             <h1 id="cool" className="text-3xl">SIGN UP</h1>
 
             <div className="mt-17">

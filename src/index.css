@@ -5,9 +5,8 @@
     src: url(./assets/font/Coolvetica\ Rg.otf);
 }
 
-html,
-body {
-    touch-action: manipulation;
+li{
+    cursor: pointer;
 }
 
 #cool {
@@ -115,7 +114,37 @@ button {
     color: #50B1FF;
 }
 
-.navbar:active {
+.navbar1:active {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+.navbar1:active {
     animation: shake 0.4s ease;
 }
 
@@ -148,4 +177,11 @@ button {
 
 .logout:hover {
     color: #50B1FF;
+}
+
+.custom-shadow {
+  box-shadow:
+    5px 5px 35px rgba(255, 102, 41, 0.15),   /* orange glow */
+    -12px 0px 35px rgba(18, 235, 255, 0.10); /* cyan glow */
+  background-color: white;
 }
